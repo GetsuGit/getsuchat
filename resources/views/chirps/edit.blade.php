@@ -7,9 +7,9 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
 
-                <h4 class="fw-bold mb-3">Edit Chirp</h4>
+                <h4 class="fw-bold mb-3 Edit">Edit Chirp</h4>
 
-                <div class="card shadow">
+                <div class="card bg-dark text-light border-secondary">
                     <div class="card-body">
                         <form method="POST" action="/chirps/{{ $chirp->id }}">
                             @csrf
