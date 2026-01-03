@@ -1,0 +1,28 @@
+body {
+  background: #15202b;
+}
+
+/* textarea dark ala Twitter */
+textarea.form-control {
+  background-color: #192734 !important;
+  color: #ffffff !important;
+  border-color: #38444d !important;
+}
+
+/* placeholder biar keliatan */
+textarea.form-control::placeholder {
+  color: #8899a6 !important;
+  opacity: 1;
+}
+
+/* saat focus (klik) */
+textarea.form-control:focus {
+  background-color: #192734 !important;
+  color: #ffffff !important;
+  border-color: #1d9bf0 !important;
+  box-shadow: none !important;
+}
+
+.Chat {
+  color: #ffffff;
+}
