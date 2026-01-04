@@ -37,7 +37,3 @@ textarea.form-control:focus {
   margin-right: 10px;
   /* Biar tidak nempel ke tombol Logout */
 }
-
-.History {
-  color: #ffffff !important;
-}

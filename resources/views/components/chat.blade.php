@@ -12,10 +12,10 @@
                 <div class="d-flex justify-content-between align-items-start">
                     <div>
                         <strong>{{ $chat->user->name }}</strong>
-                        <span class="text-muted ms-1">· {{ $chat->created_at->diffForHumans() }}</span>
+                        <span class="text-muted ms-1 History">· {{ $chat->created_at->diffForHumans() }}</span>
 
                         @if ($chat->updated_at->gt($chat->created_at->addSeconds(5)))
-                            <span class="text-muted fst-italic">· edited</span>
+                            <span class="text-muted fst-italic History">· edited</span>
                         @endif
                     </div>
 
