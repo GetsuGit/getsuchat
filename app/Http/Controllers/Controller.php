@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Chirp;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+
 abstract class Controller
 {
-    // Biarkan kosong atau biarkan sesuai bawaan Laravel
+    use AuthorizesRequests;
 }

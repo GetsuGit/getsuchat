@@ -59,23 +59,15 @@ class ChirpController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Chirp $chirp)
-    {
-        if ($chirp->user_id !== auth('web')->id()) {
-            abort(403, 'Unauthorized');
-        }
-
-        return view('chirps.edit', compact('chirp'));
-    }
+    public function edit(Chirp $chirp) {}
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, Chirp $chirp)
     {
-        if ($chirp->user_id !== auth('web')->id()) {
-            abort(403, 'Unauthorized');
-        }
+        // menjalankan ChirpPlocy@update
+        $this->authorize('update', $chirp);
 
         // Validate
         $validated = $request->validate([
@@ -93,9 +85,7 @@ class ChirpController extends Controller
      */
     public function destroy(Chirp $chirp)
     {
-        if ($chirp->user_id !== auth('web')->id()) {
-            abort(403, 'Unauthorized');
-        }
+        $this->authorize('delete', $chirp);
 
         $chirp->delete();
 
