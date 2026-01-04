@@ -19,18 +19,18 @@ namespace App\Models{
  * @property string $message
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Chirp newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Chirp newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Chirp query()
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Chirp whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Chirp whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Chirp whereMessage($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Chirp whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Chirp whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|GetsuChat newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|GetsuChat newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|GetsuChat query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|GetsuChat whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|GetsuChat whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|GetsuChat whereMessage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|GetsuChat whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|GetsuChat whereUserId($value)
  * @mixin \Eloquent
  */
 	#[\AllowDynamicProperties]
-	class IdeHelperChirp {}
+	class IdeHelperGetsuChat {}
 }
 
 namespace App\Models{
@@ -43,8 +43,8 @@ namespace App\Models{
  * @property string|null $remember_token
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Chirp> $chirps
- * @property-read int|null $chirps_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\GetsuChat> $getsuchats
+ * @property-read int|null $getsuchats_count
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
  * @method static \Database\Factories\UserFactory factory($count = null, $state = [])

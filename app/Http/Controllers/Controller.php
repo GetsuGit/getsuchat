@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Chirp;
+use App\Models\GetsuChat;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 abstract class Controller

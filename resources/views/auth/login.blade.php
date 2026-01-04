@@ -1,4 +1,4 @@
-<x-layout>
+<x-navlayout>
     <x-slot:title>
         Sign In
     </x-slot:title>
@@ -66,4 +66,4 @@
             </div>
         </div>
     </div>
-</x-layout>
+</x-navlayout>

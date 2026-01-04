@@ -30,3 +30,10 @@ textarea.form-control:focus {
 .Edit {
   color: #ffffff;
 }
+
+.Pengguna {
+  color: #ffffff !important;
+  /* Tambahkan !important jika masih membandel */
+  margin-right: 10px;
+  /* Biar tidak nempel ke tombol Logout */
+}

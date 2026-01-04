@@ -1,4 +1,4 @@
-<x-layout>
+<x-navlayout>
     <x-slot:title>
         Home Feed
     </x-slot:title>
@@ -8,7 +8,7 @@
             <div class="col-md-6">
                 <div class="card shadow mb-2 bg-dark text-light border-secondary">
                     <div class="card-body">
-                        <form method="POST" action="/chirps">
+                        <form method="POST" action="/getsuchats">
                             @csrf
                             <div class="mb-3">
                                 <textarea name="message" class="form-control text-light border-secondary @error('message') is-invalid @enderror"
@@ -37,11 +37,18 @@
     <!-- Feed -->
 
     <div class="container mt-3">
-        @forelse ($chirps as $chirp)
-            <x-chirp :chirp="$chirp" />
-        @empty
-            <p class="text-muted">No chirps yet. Be the first to chirp!</p>
-        @endforelse
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                @forelse ($getsuchats as $getsuchat)
+                    <x-chat :chat="$getsuchat" />
+                @empty
+                    <div class="text-center">
+                        <hr class="border-secondary mb-4">
+                        <p class="text-white-50 Info">Kamu belum bikin status, ayo bikin status mu !</p>
+                    </div>
+                @endforelse
+            </div>
+        </div>
     </div>
 
-</x-layout>
+</x-navlayout>

@@ -17,8 +17,8 @@ use Illuminate\Notifications\Notifiable;
  * @property string|null $remember_token
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Chirp> $chirps
- * @property-read int|null $chirps_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\GetsuChat> $getsuchats
+ * @property-read int|null $getsuchats_count
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
  * @method static \Database\Factories\UserFactory factory($count = null, $state = [])
@@ -39,7 +39,7 @@ use Illuminate\Notifications\Notifiable;
 
 /**
  * @property int $id
- * @method \Illuminate\Database\Eloquent\Relations\HasMany chirps()
+ * @method \Illuminate\Database\Eloquent\Relations\HasMany getsuchats()
  */
 class User extends Authenticatable
 {
@@ -80,8 +80,8 @@ class User extends Authenticatable
         ];
     }
 
-    public function chirps(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function getsuchats(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(Chirp::class);
+        return $this->hasMany(GetsuChat::class);
     }
 }

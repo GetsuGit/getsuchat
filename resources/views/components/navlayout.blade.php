@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="laravelChirper">
+<html lang="en" data-theme="laravelGetsuChat">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ isset($title) ? $title . ' - Getsu Chat' : 'Chirper' }}</title>
+    <title>{{ isset($title) ? $title . ' - Getsu Chat' : 'Chat' }}</title>
 
     <!-- Favicons -->
     <link rel="icon" type="image/png" href="{{ asset('img/chat.png') }}">
@@ -25,8 +25,8 @@
                     <span>Getsu Chat</span>
                 </a>
                 @auth
-                    <form method="POST" action="/logout" class="inline">
-                        <span class="text-sm">{{ auth()->user()->name }}</span>
+                    <form method="POST" action="/logout" class="d-flex align-items-center">
+                        <span class="text-sm Pengguna me-2">{{ auth()->user()->name }}</span>
                         @csrf
                         <button type="submit" class="btn btn-dark">Logout</button>
                     </form>
@@ -45,17 +45,30 @@
 
     <!-- Success Toast -->
     @if (session('success'))
-        <div class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive"
-            aria-atomic="true">
-            <div class="d-flex">
-                <div class="toast-body">
-                    Hello, world! This is a toast message.
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="successToast" class="toast align-items-center text-bg-primary border-0" role="alert"
+                aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body text-white">
+                        {{ session('success') }}
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                        aria-label="Close"></button>
                 </div>
-                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
-                    aria-label="Close"></button>
-                <span>{{ session('success') }}</span>
             </div>
         </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var toastEl = document.getElementById('successToast');
+                if (toastEl) {
+                    var toast = new bootstrap.Toast(toastEl, {
+                        delay: 3000 // Toast akan hilang otomatis dalam 3 detik
+                    });
+                    toast.show();
+                }
+            });
+        </script>
     @endif
 
     <main class="flex-1 container mx-auto px-4 py-8">

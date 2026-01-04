@@ -1,23 +1,23 @@
-<x-layout>
+<x-navlayout>
     <x-slot:title>
-        Edit Chirp
+        Edit Chat
     </x-slot:title>
 
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
 
-                <h4 class="fw-bold mb-3 Edit">Edit Chirp</h4>
+                <h4 class="fw-bold mb-3 Edit">Edit Chat</h4>
 
                 <div class="card bg-dark text-light border-secondary">
                     <div class="card-body">
-                        <form method="POST" action="/chirps/{{ $chirp->id }}">
+                        <form method="POST" action="/getsuchats/{{ $chat->id }}">
                             @csrf
                             @method('PUT')
 
                             <div class="mb-3">
                                 <textarea name="message" class="form-control @error('message') is-invalid @enderror" rows="4" maxlength="255"
-                                    required>{{ old('message', $chirp->message) }}</textarea>
+                                    required>{{ old('message', $chat->message) }}</textarea>
 
                                 @error('message')
                                     <div class="invalid-feedback">
@@ -32,7 +32,7 @@
                                 </a>
 
                                 <button type="submit" class="btn btn-primary btn-sm">
-                                    Update Chirp
+                                    Update Chat
                                 </button>
                             </div>
                         </form>
@@ -42,4 +42,4 @@
             </div>
         </div>
     </div>
-</x-layout>
+</x-navlayout>
