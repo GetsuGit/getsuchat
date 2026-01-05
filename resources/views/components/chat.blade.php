@@ -22,8 +22,8 @@
                     @if (auth()->check() && auth()->id() === $chat->user_id)
                         <div class="btn-group btn-group-sm align-self-start">
 
-                            <form method="POST" action="/getsuchats/{{ $chat->id }}" class="d-inline">
-                                <a href="/getsuchats/{{ $chat->id }}/edit" class="btn btn-dark">
+                            <form method="POST" action="/chatmodel/{{ $chat->id }}" class="d-inline">
+                                <a href="/chatmodel/{{ $chat->id }}/edit" class="btn btn-dark">
                                     Edit
                                 </a>
                                 @csrf

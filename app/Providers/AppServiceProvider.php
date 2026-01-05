@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Models\GetsuChat;
+use App\Models\ChatModel;
 use App\Policies\GetsuChatPolicy;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
@@ -17,6 +17,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // Tambahkan baris ini untuk mendaftarkan Policy secara manual
-        Gate::policy(GetsuChat::class, GetsuChatPolicy::class);
+        Gate::policy(ChatModel::class, GetsuChatPolicy::class);
     }
 }

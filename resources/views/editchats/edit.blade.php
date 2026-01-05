@@ -11,7 +11,7 @@
 
                 <div class="card bg-dark text-light border-secondary">
                     <div class="card-body">
-                        <form method="POST" action="/getsuchats/{{ $chat->id }}">
+                        <form method="POST" action="/chatmodel/{{ $chat->id }}">
                             @csrf
                             @method('PUT')
 

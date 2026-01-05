@@ -8,7 +8,7 @@
             <div class="col-md-6">
                 <div class="card shadow mb-2 bg-dark text-light border-secondary">
                     <div class="card-body">
-                        <form method="POST" action="/getsuchats">
+                        <form method="POST" action="/chatmodel">
                             @csrf
                             <div class="mb-3">
                                 <textarea name="message" class="form-control text-light border-secondary @error('message') is-invalid @enderror"
@@ -39,7 +39,7 @@
     <div class="container mt-3">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                @forelse ($getsuchats as $getsuchat)
+                @forelse ($chatmodels as $getsuchat)
                     <x-chat :chat="$getsuchat" />
                 @empty
                     <div class="text-center">

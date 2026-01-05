@@ -16,7 +16,7 @@ class Login extends Controller
             'password' => 'required',
         ]);
 
-        // Attempt to log in
+        // laravel mencocokan dengan data base dan setelah itu hash cocokan
         if (Auth::attempt($credentials, $request->boolean('remember'))) {
             // Regenerate session for security
             $request->session()->regenerate();
@@ -27,7 +27,7 @@ class Login extends Controller
 
         // If login fails, redirect back with error
         return back()
-            ->withErrors(['email' => 'The provided credentials do not match our records.'])
+            ->withErrors(['email' => 'Email atau Password kamu tidak sesuai !'])
             ->onlyInput('email');
     }
 }

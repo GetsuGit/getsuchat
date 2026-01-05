@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [GetsuChatController::class, 'index']);
 
 // Protected routes
-Route::resource('getsuchats', GetsuChatController::class)
+Route::resource('chatmodel', GetsuChatController::class)
     ->middleware(['auth', 'verified']);
 
 // Registration routes

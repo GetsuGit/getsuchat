@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\GetsuChat;
+use App\Models\ChatModel;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 
@@ -13,12 +13,12 @@ class GetsuChatController extends Controller
      */
     public function index()
     {
-        $getsuchats = GetsuChat::with('user')
+        $chatindexs = ChatModel::with('user')
             ->latest()
-            ->take(50)  // Limit to 50 most recent getsuchat
+            ->take(50)  // Limit to 50 most recent chat
             ->get();
 
-        return view('home', ['getsuchats' => $getsuchats]);
+        return view('home', ['chatmodels' => $chatindexs]);
     }
 
     /**
@@ -34,16 +34,19 @@ class GetsuChatController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'message' => 'required|string|max:255',
-        ], [
-            'message.required' => 'Please write something to chat!',
-            'message.max' => 'chat must be 255 characters or less.',
-        ]);
+        $validated = $request->validate(
+            [
+                'message' => 'required|string|max:255',
+            ],
+            [
+                'message.required' => 'Isi dulu chat mu bro',
+                'message.max' => 'chat mu melebihi batas karakter.',
+            ]
+        );
 
         $user = $request->user();
 
-        $user->getsuchats()->create($validated);
+        $user->userchats()->create($validated);
 
         return redirect('/')->with('success', 'Yeah chat kamu berhasil dibuat');
     }
@@ -59,25 +62,25 @@ class GetsuChatController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(GetsuChat $getsuchat)
+    public function edit(ChatModel $chatmodel)
     {
 
         // Pastikan Anda melakukan otorisasi agar orang lain tidak bisa edit chat orang lain
-        $this->authorize('update', $getsuchat);
+        $this->authorize('update', $chatmodel);
 
         // Variabel yang dikirim ke view harus bernama 'chat' 
         // karena di file Blade Anda memanggil {{ $chat->id }}
-        return view('editchats.edit', ['chat' => $getsuchat]);
+        return view('editchats.edit', ['chat' => $chatmodel]);
     }
 
     /**
      * Update the specified resource in storage.
      */
 
-    public function update(Request $request, GetsuChat $getsuchat)
+    public function update(Request $request, ChatModel $chatmodel)
     {
         // menjalankan GetsuChatPlocy@update
-        $this->authorize('update', $getsuchat);
+        $this->authorize('update', $chatmodel);
 
         // Validate
         $validated = $request->validate([
@@ -85,7 +88,7 @@ class GetsuChatController extends Controller
         ]);
 
         // Update
-        $getsuchat->update($validated);
+        $chatmodel->update($validated);
 
         return redirect('/')->with('success', 'Chat kamu berhasil di update');
     }
@@ -93,11 +96,11 @@ class GetsuChatController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(GetsuChat $getsuchat)
+    public function destroy(ChatModel $chatmodel)
     {
-        $this->authorize('delete', $getsuchat);
+        $this->authorize('delete', $chatmodel);
 
-        $getsuchat->delete();
+        $chatmodel->delete();
 
         return redirect('/')->with('success', 'Ok chat kamu sudah di hapus');
     }
